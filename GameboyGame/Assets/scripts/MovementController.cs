@@ -34,9 +34,11 @@ public class MovementController : MonoBehaviour
     private float _speed;
     private float _currentSpeed;
     private float _currentSpeedTime;
+    private float _axis;
 
     private bool _isBraking = false;
     private bool _maxGainReached = false;
+    private bool _mouseButtonDown;
 
     // Start is called before the first frame update
     void Start()
@@ -50,7 +52,7 @@ public class MovementController : MonoBehaviour
     void Update()
     {
         //left right and a and d input to get current rot
-        _rotSpeed = Input.GetAxisRaw("Horizontal") * _rotationSpeed;
+        _rotSpeed = _axis * _rotationSpeed;
         gameObject.transform.eulerAngles += new Vector3(0,0, _rotSpeed);
 
 
@@ -64,7 +66,7 @@ public class MovementController : MonoBehaviour
 
 
         //a button gameboy
-        if (Input.GetMouseButton(0))
+        if (_mouseButtonDown)
             PlayerBrake();
         else
         {
@@ -130,5 +132,15 @@ public class MovementController : MonoBehaviour
 
 
         }
+    }
+
+    public void SetAxis(float axis)
+    {
+        _axis = axis;
+    }
+
+    public void SetIsBraking(bool isPressingBrake)
+    {
+        _mouseButtonDown = isPressingBrake;
     }
 }
