@@ -41,7 +41,10 @@ public class MovementController : MonoBehaviour
     private bool _brakeKeyPressed = false;
 
     // Declaring sprites I want to switch around
-    public List<Sprite> _sprites;
+    public GameObject _player;
+    private SpriteRenderer _spriteR;
+    public List<Sprite> _sprites = new List<Sprite>();
+
 
     // Start is called before the first frame update
     void Start()
@@ -49,7 +52,9 @@ public class MovementController : MonoBehaviour
         //set internal variables to standard settings
         _acceleration = _standardAcceleration;
         _speed = _standardSpeed;
-        //GetComponent(SpriteRenderer).sprite = _sprites[0];
+        _spriteR = gameObject.GetComponent<SpriteRenderer>();
+        //_player 
+        _spriteR.sprite = _sprites[0];
     }
 
     // Update is called once per frame
@@ -57,10 +62,10 @@ public class MovementController : MonoBehaviour
     {
         //left right and a and d input to get current rot
         _rotSpeed = _axis * _rotationSpeed;
-        if(_rotationSpeed < 0)
+        /*if(_rotationSpeed > 0)
         {
-            //Sprite;
-        }
+            _spriteR.sprite = _sprites[1];
+        }*/
         gameObject.transform.eulerAngles += new Vector3(0,0, _rotSpeed);
 
 

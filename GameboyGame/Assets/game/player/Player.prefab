@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 3214578990930509791}
   - component: {fileID: 3214578990930509790}
   - component: {fileID: 3214578990930509760}
-  m_Layer: 8
+  m_Layer: 6
   m_Name: Player
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -133,6 +133,7 @@ MonoBehaviour:
   _resetGainSpeed: 0.02
   _maxSpeed: 6
   _maxAcceleration: 3
+  _player: {fileID: 0}
   _sprites:
   - {fileID: -3169669683822317412, guid: 57e4b4316f3e5a44b909953f55a728e8, type: 3}
   - {fileID: 7831000716946834073, guid: 57e4b4316f3e5a44b909953f55a728e8, type: 3}
