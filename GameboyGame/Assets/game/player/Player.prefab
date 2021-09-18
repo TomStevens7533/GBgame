@@ -133,6 +133,15 @@ MonoBehaviour:
   _resetGainSpeed: 0.02
   _maxSpeed: 6
   _maxAcceleration: 3
+  _sprites:
+  - {fileID: -3169669683822317412, guid: 57e4b4316f3e5a44b909953f55a728e8, type: 3}
+  - {fileID: 7831000716946834073, guid: 57e4b4316f3e5a44b909953f55a728e8, type: 3}
+  - {fileID: 8124315132773805154, guid: 57e4b4316f3e5a44b909953f55a728e8, type: 3}
+  - {fileID: -4658673473247107190, guid: 57e4b4316f3e5a44b909953f55a728e8, type: 3}
+  - {fileID: 5522837241314779586, guid: 57e4b4316f3e5a44b909953f55a728e8, type: 3}
+  - {fileID: -7906131035588583152, guid: 57e4b4316f3e5a44b909953f55a728e8, type: 3}
+  - {fileID: -1870796642370958056, guid: 57e4b4316f3e5a44b909953f55a728e8, type: 3}
+  - {fileID: 1748531865834672106, guid: 57e4b4316f3e5a44b909953f55a728e8, type: 3}
 --- !u!1 &3214578991566800431
 GameObject:
   m_ObjectHideFlags: 0
