@@ -38,7 +38,7 @@ public class MovementController : MonoBehaviour
 
     private bool _isBraking = false;
     private bool _maxGainReached = false;
-    private bool _mouseButtonDown;
+    private bool _brakeKeyPressed = false;
 
     // Start is called before the first frame update
     void Start()
@@ -66,7 +66,7 @@ public class MovementController : MonoBehaviour
 
 
         //a button gameboy
-        if (_mouseButtonDown)
+        if (_brakeKeyPressed)
             PlayerBrake();
         else
         {
@@ -98,6 +98,8 @@ public class MovementController : MonoBehaviour
                 _acceleration = _standardAcceleration;
                 _speed = _standardSpeed;
                 _currentSpeedTime = 0;
+                Debug.Log("standard speed");
+
             }
         }
        
@@ -139,8 +141,8 @@ public class MovementController : MonoBehaviour
         _axis = axis;
     }
 
-    public void SetIsBraking(bool isPressingBrake)
+    public void SetIsBraking(bool isBraking)
     {
-        _mouseButtonDown = isPressingBrake;
+        _brakeKeyPressed = isBraking;
     }
 }
