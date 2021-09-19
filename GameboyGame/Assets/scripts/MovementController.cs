@@ -40,6 +40,8 @@ public class MovementController : MonoBehaviour
     private bool _maxGainReached = false;
     private bool _brakeKeyPressed = false;
 
+    private Rigidbody2D _rigidBody;
+
     // Declaring sprites I want to switch around
     public GameObject _player;
     private SpriteRenderer _spriteR;
@@ -55,6 +57,8 @@ public class MovementController : MonoBehaviour
         _spriteR = gameObject.GetComponent<SpriteRenderer>();
         //_player 
         _spriteR.sprite = _sprites[0];
+
+        _rigidBody = GetComponent<Rigidbody2D>();
     }
 
     // Update is called once per frame
@@ -75,7 +79,8 @@ public class MovementController : MonoBehaviour
             _currentSpeed = _speed;
 
         Vector3 dir = Quaternion.Euler(gameObject.transform.eulerAngles) * Vector3.up;
-        gameObject.transform.position += dir * _currentSpeed * Time.deltaTime;
+        Vector3 veloctie = dir * _currentSpeed * Time.deltaTime;
+        _rigidBody.velocity = new Vector2(veloctie.x , veloctie.y);
 
 
         //a button gameboy
@@ -101,7 +106,6 @@ public class MovementController : MonoBehaviour
             //reset to default speed after a while
             if((_acceleration > _standardAcceleration || _speed > _standardSpeed))
             {
-                Debug.Log("slowing down");
                 _acceleration -= _resetGainSpeed;
                 _speed -= _resetGainSpeed;
             }
@@ -111,7 +115,6 @@ public class MovementController : MonoBehaviour
                 _acceleration = _standardAcceleration;
                 _speed = _standardSpeed;
                 _currentSpeedTime = 0;
-                Debug.Log("standard speed");
 
             }
         }
