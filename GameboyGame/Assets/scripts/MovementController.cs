@@ -80,7 +80,7 @@ public class MovementController : MonoBehaviour
 
         Vector3 dir = Quaternion.Euler(gameObject.transform.eulerAngles) * Vector3.up;
         Vector3 veloctie = dir * _currentSpeed * Time.deltaTime;
-        _rigidBody.velocity = new Vector2(veloctie.x , veloctie.y);
+        _rigidBody.MovePosition(gameObject.transform.position + (new Vector3(veloctie.x , veloctie.y, 0)));
 
 
         //a button gameboy
