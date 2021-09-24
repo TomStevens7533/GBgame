@@ -159,4 +159,10 @@ public class MovementController : MonoBehaviour
     {
         _brakeKeyPressed = isBraking;
     }
+
+    public Vector3 GetPlayerEuler()
+    {
+
+        return gameObject.transform.eulerAngles;
+    }
 }
