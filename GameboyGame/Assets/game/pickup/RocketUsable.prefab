@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5766076765502577428}
   - component: {fileID: 8469321151341756442}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: sprite
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -93,7 +93,7 @@ GameObject:
   - component: {fileID: 3501278026077152365}
   - component: {fileID: 1306185020356254902}
   - component: {fileID: 662074592072986627}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: RocketUsable
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -150,6 +150,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b07a1a9d0ca3be34a95b6638349def66, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _explostionGo: {fileID: 1374105157440041833, guid: 169a1e5e9d434b147826cb2cc99c9213, type: 3}
 --- !u!1 &4957967335862187940
 GameObject:
   m_ObjectHideFlags: 0
@@ -160,7 +161,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5497773807936000030}
   - component: {fileID: 7892800348520568402}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: collider
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -208,7 +209,7 @@ GameObject:
   - component: {fileID: 8120241042601999841}
   - component: {fileID: 630893511822230843}
   - component: {fileID: 8524175590049153458}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Particles
   m_TagString: Untagged
   m_Icon: {fileID: 0}

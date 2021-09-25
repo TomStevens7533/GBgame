@@ -114,13 +114,15 @@ MonoBehaviour:
   _standardSpeed: 4
   _standardAcceleration: 1
   _rotationSpeed: 0.5
-  _timeBeforeSlowingDown: 1.5
+  _timeBeforeSlowingDown: 2
   _brakeAcceleration: 0.2
   _brakeSpeed: 0.5
-  _brakeGain: 0.02
+  _brakeGain: 0.5
   _resetGainSpeed: 0.02
-  _maxSpeed: 6
-  _maxAcceleration: 3
+  _maxSpeed: 12
+  _maxAcceleration: 8
+  _maxHitTime: 3
+  _hitspeed: 1
   _player: {fileID: 0}
   _sprites:
   - {fileID: -3169669683822317412, guid: 57e4b4316f3e5a44b909953f55a728e8, type: 3}
@@ -165,6 +167,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _rocketGameObject: {fileID: 2648509284014737040, guid: 0310ff5c9cd224048b54b6a1a1fc0938, type: 3}
+  _RocketSpeed: 5
 --- !u!1 &3214578991566800431
 GameObject:
   m_ObjectHideFlags: 0

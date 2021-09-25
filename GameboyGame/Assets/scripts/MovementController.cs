@@ -22,6 +22,9 @@ public class MovementController : MonoBehaviour
     [SerializeField] private float _maxSpeed;
     [SerializeField] private float _maxAcceleration;
 
+    //hit settings
+    [SerializeField] private float _maxHitTime;
+    [SerializeField] private float _hitspeed;
 
     private float _rotSpeed;
 
@@ -35,10 +38,14 @@ public class MovementController : MonoBehaviour
     private float _currentSpeed;
     private float _currentSpeedTime;
     private float _axis;
+    private float _currentHitTime = 0;
 
     private bool _isBraking = false;
     private bool _maxGainReached = false;
     private bool _brakeKeyPressed = false;
+    private bool _isHit = false;
+    private bool _speedBoostAvailable = false;
+
 
     private Rigidbody2D _rigidBody;
 
@@ -65,12 +72,29 @@ public class MovementController : MonoBehaviour
     void Update()
     {
         //left right and a and d input to get current rot
-        _rotSpeed = _axis * _rotationSpeed;
         /*if(_rotationSpeed > 0)
         {
             _spriteR.sprite = _sprites[1];
         }*/
-        gameObject.transform.eulerAngles += new Vector3(0,0, _rotSpeed);
+        if(_isHit == false)
+        {
+            _rotSpeed = _axis * _rotationSpeed;
+            gameObject.transform.eulerAngles += new Vector3(0, 0, _rotSpeed);
+        }
+        else
+        {
+            if (_currentHitTime < _maxHitTime)
+            {
+                _rotSpeed = (Random.Range(0,1) == 0 ? 1 : -1) * _hitspeed;
+                _rotSpeed += _axis * _rotationSpeed; 
+                gameObject.transform.eulerAngles += new Vector3(0, 0, _rotSpeed);
+                _currentHitTime += Time.deltaTime;
+            }
+            else
+                _isHit = false;
+           
+        }
+
 
 
         if (_currentSpeed < _speed)
@@ -115,6 +139,7 @@ public class MovementController : MonoBehaviour
                 _acceleration = _standardAcceleration;
                 _speed = _standardSpeed;
                 _currentSpeedTime = 0;
+                Debug.Log("Normal speed");
 
             }
         }
@@ -164,5 +189,26 @@ public class MovementController : MonoBehaviour
     {
 
         return gameObject.transform.eulerAngles;
+    }
+
+    public void GetHit()
+    {
+        _isHit = true;
+        _currentHitTime = 0;
+    }
+    public void AddSpeedBoost()
+    {
+        //speed boost :P
+        _speedBoostAvailable = true;
+
+
+    }
+    public void StartSpeedBoost()
+    {
+        Debug.Log("SPEEED");
+        _extraAcceleration = _maxAcceleration;
+        _extraSpeed = _maxSpeed;
+        _maxGainReached = true;
+        _speedBoostAvailable = false;
     }
 }

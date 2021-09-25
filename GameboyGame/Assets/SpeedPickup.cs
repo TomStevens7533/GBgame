@@ -8,7 +8,9 @@ public class SpeedPickup : MonoBehaviour
     {
         if (collision.tag == "Player")
         {
-            Debug.Log("collided");
+            Debug.Log("speed collided");
+            collision.gameObject.GetComponent<MovementController>().AddSpeedBoost();
+
         }
     }
 }

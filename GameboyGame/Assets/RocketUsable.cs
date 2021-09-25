@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class RocketUsable : MonoBehaviour
 {
+    [SerializeField] private GameObject _explostionGo;
     private Vector3 _velocity;
     private Quaternion _currentRot;
     private Rigidbody2D _rigidBody;
@@ -12,11 +13,15 @@ public class RocketUsable : MonoBehaviour
     {
         _rigidBody = GetComponent<Rigidbody2D>();
     }
-    private void OnCollisionEnter2D(Collider2D col)
+    private void OnCollisionEnter2D(Collision2D col)
     {
+
         if (col.gameObject.layer == 8)
         { //hits obstacles
-            Debug.Log("Lol");
+            Debug.Log(col.gameObject.layer);
+            var go = Instantiate(_explostionGo);
+            go.transform.position = new Vector3(gameObject.transform.position.x , gameObject.transform.position.y, -3);
+            Destroy(gameObject);
         }
 
     }

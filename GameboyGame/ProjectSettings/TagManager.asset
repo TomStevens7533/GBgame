@@ -16,8 +16,8 @@ TagManager:
   - Obstacles
   - Background
   - waypoint
-  - 
-  - 
+  - Usables
+  - explosion
   - 
   - 
   - 
@@ -43,4 +43,10 @@ TagManager:
     locked: 0
   - name: Default
     uniqueID: 0
+    locked: 0
+  - name: Pickup
+    uniqueID: 2283723741
+    locked: 0
+  - name: explostion
+    uniqueID: 1121639325
     locked: 0
