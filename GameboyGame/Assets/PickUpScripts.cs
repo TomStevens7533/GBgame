@@ -36,7 +36,7 @@ public class PickUpScripts : MonoBehaviour
     {
         _SpeedBoost = false;
     }
-    public void FireRocket(Vector3 euler)
+    public void FireRocket(Vector3 euler, float verticalAxis)
     {
         //Fire rocket
         if(_RocketAvailable > 0)
@@ -45,10 +45,11 @@ public class PickUpScripts : MonoBehaviour
             Debug.Log("Fire");
             var go = Instantiate(_rocketGameObject);
             go.transform.position = gameObject.transform.position;
-            Vector3 dir = Quaternion.Euler(euler) * Vector3.up;
+            Quaternion currentRotation = (verticalAxis > 0 ? Quaternion.Euler(euler) : Quaternion.Euler(new Vector3(0, 0, (euler.z + 180) % 360)));
+            Vector3 dir = currentRotation * Vector3.up;
             Vector3 veloctie = dir * _RocketSpeed * Time.deltaTime;
-
-
+            go.GetComponent<RocketUsable>().SetVelocity(veloctie);
+            go.GetComponent<RocketUsable>().SetRotation(currentRotation);
 
             //go.transform.rotation = Quaternion.LookRotation(newVelocity, Vector3.up);
         }

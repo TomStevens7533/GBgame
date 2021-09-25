@@ -24,6 +24,6 @@ public class PlayerController : MonoBehaviour
 
         float verticalAxis = Input.GetAxisRaw("Vertical");
         if (!Mathf.Approximately(Input.GetAxisRaw("Vertical"), 0))
-              _PickUpController.FireRocket(_movementController.GetPlayerEuler());
+              _PickUpController.FireRocket(_movementController.GetPlayerEuler(), verticalAxis);
     }
 }
