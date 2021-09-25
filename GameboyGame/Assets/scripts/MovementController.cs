@@ -211,4 +211,9 @@ public class MovementController : MonoBehaviour
         _maxGainReached = true;
         _speedBoostAvailable = false;
     }
+    public bool IsSpeedBoostAvaialble()
+    {
+        return _speedBoostAvailable;
+    }
+    
 }
