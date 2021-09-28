@@ -24,12 +24,12 @@ public class AIMovementController : MonoBehaviour
     void FixedUpdate()
     {
         Vector2 inputVector = Vector2.zero;
-
+        /*
         switch(aiMode)
         {
             case AIMode.followPlayer:
                 Fo
-        }
+        }*/
         inputVector.x = 16.0f;
         inputVector.y = 16.0f;
 
